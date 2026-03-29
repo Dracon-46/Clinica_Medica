@@ -2570,11 +2570,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\arthu\\Downloads\\ClinicaMVC\\ClinicaMVC.csproj",
+      "projectUniqueName": "C:\\Clinica_Medica\\ClinicaMVC.csproj",
       "projectName": "ClinicaMVC",
-      "projectPath": "C:\\Users\\arthu\\Downloads\\ClinicaMVC\\ClinicaMVC.csproj",
+      "projectPath": "C:\\Clinica_Medica\\ClinicaMVC.csproj",
       "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\arthu\\Downloads\\ClinicaMVC\\obj\\",
+      "outputPath": "C:\\Clinica_Medica\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config"

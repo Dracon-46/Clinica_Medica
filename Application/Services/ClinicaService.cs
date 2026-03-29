@@ -6,50 +6,70 @@ using ClinicaMVC.Domain.Models;
 namespace ClinicaMVC.Application.Services;
 
 /// <summary>
-/// ClinicaService — orquestra os casos de uso da clínica (SRP, DIP)
+/// ClinicaService — orquestra os casos de uso da clínica.
+/// 
+/// SOLID aplicado:
+///   SRP — só coordena casos de uso, não conhece detalhes de persistência nem de criação de objetos.
+///   DIP — depende de IPacienteRepository, IMedicoRepository, IAtendimentoRepository (abstrações)
+///         e de PacoteAtendimento (abstração da Abstract Factory), nunca de concretos.
+///   OCP — para trocar o pacote padrão basta mudar o registro no Program.cs, sem tocar aqui.
 /// </summary>
 public class ClinicaService
 {
-    private readonly IPacienteRepository _pacienteRepo;
-    private readonly IMedicoRepository   _medicoRepo;
+    private readonly IPacienteRepository    _pacienteRepo;
+    private readonly IMedicoRepository      _medicoRepo;
     private readonly IAtendimentoRepository _atendimentoRepo;
 
+    // ← injetado conforme o diagrama: "-pacoteFactory PacoteAtendimento"
+    // DIP: depende da abstração, não do PacoteFactoryResolver concreto
+    private readonly PacoteAtendimento _pacoteFactory;
+
     public ClinicaService(
-        IPacienteRepository pacienteRepo,
-        IMedicoRepository medicoRepo,
-        IAtendimentoRepository atendimentoRepo)
+        IPacienteRepository    pacienteRepo,
+        IMedicoRepository      medicoRepo,
+        IAtendimentoRepository atendimentoRepo,
+        PacoteAtendimento      pacoteFactory)      // << injeção via DI
     {
         _pacienteRepo    = pacienteRepo;
         _medicoRepo      = medicoRepo;
         _atendimentoRepo = atendimentoRepo;
+        _pacoteFactory   = pacoteFactory;
     }
 
+    /// <summary>
+    /// Agenda uma consulta usando a factory de consulta correta (Factory Method)
+    /// e o pacote injetado (Abstract Factory).
+    /// O tipo de pacote ainda pode ser sobrescrito por parâmetro quando necessário.
+    /// </summary>
     public async Task AgendarConsulta(
         string pacienteId, int medicoId,
         string tipoConsulta, string tipoPacote, DateTime dataHora)
     {
-        var factory = ConsultaFactoryResolver.Resolver(tipoConsulta);
-
-        if (!factory.ValidarHorario(dataHora))
+        // Factory Method — valida horário conforme especialidade
+        var consultaFactory = ConsultaFactoryResolver.Resolver(tipoConsulta);
+        if (!consultaFactory.ValidarHorario(dataHora))
             throw new InvalidOperationException(
-                $"Horário {dataHora:HH:mm} inválido para {tipoConsulta}.");
+                $"Horário {dataHora:HH:mm} inválido para a especialidade '{tipoConsulta}'.");
 
-        // Valida existência
-        var paciente = await _pacienteRepo.GetByIdAsync(pacienteId)
+        // Valida existência das entidades
+        _ = await _pacienteRepo.GetByIdAsync(pacienteId)
             ?? throw new KeyNotFoundException("Paciente não encontrado.");
-        var medico = await _medicoRepo.GetByIdAsync(medicoId)
+        _ = await _medicoRepo.GetByIdAsync(medicoId)
             ?? throw new KeyNotFoundException("Médico não encontrado.");
 
-        // Demonstra Abstract Factory
-        var pacoteFactory = PacoteFactoryResolver.Resolver(tipoPacote);
-        pacoteFactory.MontarPacote(); // executa a lógica de negócio
+        // Abstract Factory — usa o pacote injetado ou resolve um específico se informado
+        var pacote = tipoPacote.ToLower() == _pacoteFactory.GetDescricao().ToLower()
+            ? _pacoteFactory
+            : PacoteFactoryResolver.Resolver(tipoPacote);
+
+        pacote.MontarPacote(); // executa lógica de negócio do pacote
 
         var atendimento = new Atendimento
         {
             PacienteId   = pacienteId,
             MedicoId     = medicoId,
             TipoConsulta = tipoConsulta,
-            TipoPacote   = tipoPacote,
+            TipoPacote   = pacote.GetDescricao(),
             DataHora     = dataHora,
             Status       = "Agendado"
         };
@@ -81,14 +101,8 @@ public class ClinicaService
         await _medicoRepo.GetAllAsync();
 
     public async Task CadastrarPaciente(string nome, DateTime dataNascimento)
-    {
-        var paciente = new Paciente(nome, dataNascimento);
-        await _pacienteRepo.AddAsync(paciente);
-    }
+        => await _pacienteRepo.AddAsync(new Paciente(nome, dataNascimento));
 
     public async Task CadastrarMedico(string crm, string nome, string especialidade)
-    {
-        var medico = new Medico(crm, nome, especialidade);
-        await _medicoRepo.AddAsync(medico);
-    }
+        => await _medicoRepo.AddAsync(new Medico(crm, nome, especialidade));
 }

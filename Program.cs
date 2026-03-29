@@ -3,33 +3,39 @@ using Microsoft.EntityFrameworkCore;
 using ClinicaMVC.Infrastructure.Data;
 using ClinicaMVC.Infrastructure.Repositories;
 using ClinicaMVC.Domain.Interfaces;
+using ClinicaMVC.Domain.Factories;
 using ClinicaMVC.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ── MVC ──────────────────────────────────────────────
+// ── MVC ──────────────────────────────────────────────────────────────────
 builder.Services.AddControllersWithViews();
 
-// ── EF Core + SQLite ──────────────────────────────────
+// ── EF Core + SQLite ─────────────────────────────────────────────────────
 builder.Services.AddDbContext<ClinicaDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("Default")
         ?? "Data Source=clinica.db"));
 
-// ── Repositórios (DIP) ────────────────────────────────
-builder.Services.AddScoped<IPacienteRepository, PacienteRepository>();
-builder.Services.AddScoped<IMedicoRepository, MedicoRepository>();
+// ── Repositórios — DIP: controllers/services dependem de interfaces ───────
+builder.Services.AddScoped<IPacienteRepository,    PacienteRepository>();
+builder.Services.AddScoped<IMedicoRepository,      MedicoRepository>();
 builder.Services.AddScoped<IAtendimentoRepository, AtendimentoRepository>();
 
-// ── Application Services ──────────────────────────────
+// ── Abstract Factory — DIP: registra a abstração, injeta um concreto ──────
+// Para mudar o pacote padrão de toda a aplicação, basta trocar esta linha.
+// Nenhuma outra classe precisa ser alterada. Isso é OCP em ação.
+builder.Services.AddScoped<PacoteAtendimento, PacoteBasicoFactory>();
+
+// ── Application Service ───────────────────────────────────────────────────
 builder.Services.AddScoped<ClinicaService>();
 
 var app = builder.Build();
 
-// ── Criar banco automaticamente (EnsureCreated cria tabelas pelo modelo) ──
+// ── Criar banco automaticamente ───────────────────────────────────────────
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ClinicaDbContext>();
-    db.Database.EnsureCreated(); // cria tabelas se não existirem + aplica Seed Data
+    db.Database.EnsureCreated();
 }
 
 if (!app.Environment.IsDevelopment())
