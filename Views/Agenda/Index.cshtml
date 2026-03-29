@@ -1,0 +1,70 @@
+@* Views/Agenda/Index.cshtml *@
+@model IEnumerable<ClinicaMVC.Domain.Models.Atendimento>
+@{ViewData["Title"] = "Agenda";}
+
+<div class="page-header">
+    <div>
+        <h1>Agenda de Atendimentos</h1>
+        <p>@Model.Count() atendimento(s) no sistema</p>
+    </div>
+    <a asp-action="Agendar" class="btn btn-primary">+ Agendar Consulta</a>
+</div>
+
+<div class="table-card">
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <div class="empty-icon">🗓</div>
+            <p>Nenhum atendimento agendado.<br><a asp-action="Agendar" style="color:var(--emerald);">Agende o primeiro.</a></p>
+        </div>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Paciente</th>
+                    <th>Médico</th>
+                    <th>Especialidade</th>
+                    <th>Pacote</th>
+                    <th>Data / Hora</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var a in Model.OrderByDescending(x => x.DataHora))
+                {
+                    <tr>
+                        <td style="color:var(--slate-500);font-size:.8rem;">@a.Id</td>
+                        <td><strong>@(a.Paciente?.GetNome() ?? "—")</strong></td>
+                        <td>@(a.Medico?.GetNome() ?? "—")</td>
+                        <td>@a.TipoConsulta</td>
+                        <td><span class="badge badge-slate">@a.TipoPacote</span></td>
+                        <td>@a.DataHora.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>
+                            <span class="badge @(a.Status == "Agendado" ? "badge-green" : a.Status == "Cancelado" ? "badge-red" : "badge-slate")">
+                                @a.Status
+                            </span>
+                        </td>
+                        <td>
+                            @if (a.Status == "Agendado")
+                            {
+                                <form method="post" asp-action="Cancelar" style="display:inline;">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="id" value="@a.Id" />
+                                    <button type="submit" class="btn btn-danger"
+                                            data-confirm="Cancelar este atendimento?"
+                                            style="padding:.3rem .7rem;font-size:.78rem;">
+                                        Cancelar
+                                    </button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

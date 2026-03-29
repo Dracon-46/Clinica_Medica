@@ -1,0 +1,46 @@
+@* Views/Paciente/Index.cshtml *@
+@model IEnumerable<ClinicaMVC.Domain.Models.Paciente>
+@{ViewData["Title"] = "Pacientes";}
+
+<div class="page-header">
+    <div>
+        <h1>Pacientes</h1>
+        <p>@Model.Count() paciente(s) cadastrado(s)</p>
+    </div>
+    <a asp-action="Criar" class="btn btn-primary">+ Novo Paciente</a>
+</div>
+
+<div class="table-card">
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <div class="empty-icon">👤</div>
+            <p>Nenhum paciente cadastrado.<br><a asp-action="Criar" style="color:var(--emerald);">Cadastre o primeiro.</a></p>
+        </div>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                    <th>Idade</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    var idade = (int)((DateTime.Today - p.DataNascimento).TotalDays / 365.25);
+                    <tr>
+                        <td style="color:var(--slate-500);font-size:.8rem;font-family:monospace;">@p.Id[..8]…</td>
+                        <td><strong>@p.GetNome()</strong></td>
+                        <td>@p.DataNascimento.ToString("dd/MM/yyyy")</td>
+                        <td>@idade anos</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

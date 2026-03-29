@@ -1,0 +1,39 @@
+@* Views/Medico/Index.cshtml *@
+@model IEnumerable<ClinicaMVC.Domain.Models.Medico>
+@{ViewData["Title"] = "Médicos";}
+
+<div class="page-header">
+    <div>
+        <h1>Médicos</h1>
+        <p>@Model.Count() médico(s) cadastrado(s)</p>
+    </div>
+    <a asp-action="Criar" class="btn btn-primary">+ Novo Médico</a>
+</div>
+
+<div class="table-card">
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <div class="empty-icon">🩺</div>
+            <p>Nenhum médico cadastrado.<br><a asp-action="Criar" style="color:var(--emerald);">Cadastre o primeiro.</a></p>
+        </div>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr><th>CRM</th><th>Nome</th><th>Especialidade</th></tr>
+            </thead>
+            <tbody>
+                @foreach (var m in Model)
+                {
+                    <tr>
+                        <td><span class="badge badge-slate">@m.GetCrm()</span></td>
+                        <td><strong>@m.GetNome()</strong></td>
+                        <td>@m.GetEspecialidade()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

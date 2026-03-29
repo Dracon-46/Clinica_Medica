@@ -1,0 +1,38 @@
+@* Views/Medico/Criar.cshtml *@
+@{ViewData["Title"] = "Novo Médico";}
+
+<div class="page-header">
+    <div>
+        <h1>Novo Médico</h1>
+        <p>Preencha os dados do profissional</p>
+    </div>
+</div>
+
+<div class="form-card">
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <div class="form-grid form-grid-2">
+            <div class="form-group">
+                <label for="crm">CRM</label>
+                <input type="text" id="crm" name="crm" placeholder="CRM-00000" required />
+            </div>
+            <div class="form-group">
+                <label for="especialidade">Especialidade</label>
+                <select id="especialidade" name="especialidade" required>
+                    <option value="">Selecione…</option>
+                    <option value="Geral">Clínica Geral</option>
+                    <option value="Pediatria">Pediatria</option>
+                    <option value="Ortopedia">Ortopedia</option>
+                </select>
+            </div>
+            <div class="form-group" style="grid-column: 1 / -1;">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Dr. João Silva" required />
+            </div>
+        </div>
+        <div class="btn-row">
+            <button type="submit" class="btn btn-primary">Cadastrar Médico</button>
+            <a asp-action="Index" class="btn btn-ghost">Cancelar</a>
+        </div>
+    </form>
+</div>

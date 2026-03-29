@@ -1,0 +1,29 @@
+@* Views/Paciente/Criar.cshtml *@
+@{ViewData["Title"] = "Novo Paciente";}
+
+<div class="page-header">
+    <div>
+        <h1>Novo Paciente</h1>
+        <p>Preencha os dados do paciente</p>
+    </div>
+</div>
+
+<div class="form-card">
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex.: Maria da Silva" required />
+            </div>
+            <div class="form-group">
+                <label for="dataNascimento">Data de Nascimento</label>
+                <input type="date" id="dataNascimento" name="dataNascimento" required />
+            </div>
+        </div>
+        <div class="btn-row">
+            <button type="submit" class="btn btn-primary">Cadastrar Paciente</button>
+            <a asp-action="Index" class="btn btn-ghost">Cancelar</a>
+        </div>
+    </form>
+</div>

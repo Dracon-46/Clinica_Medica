@@ -1,0 +1,81 @@
+@* Views/Agenda/Agendar.cshtml *@
+@{
+    ViewData["Title"] = "Agendar Consulta";
+    var pacientes = ViewBag.Pacientes as IEnumerable<ClinicaMVC.Domain.Models.Paciente> ?? Enumerable.Empty<ClinicaMVC.Domain.Models.Paciente>();
+    var medicos   = ViewBag.Medicos   as IEnumerable<ClinicaMVC.Domain.Models.Medico>  ?? Enumerable.Empty<ClinicaMVC.Domain.Models.Medico>();
+    var horarios  = ViewBag.Horarios  as List<DateTime> ?? new List<DateTime>();
+}
+
+<div class="page-header">
+    <div>
+        <h1>Agendar Consulta</h1>
+        <p>Selecione o paciente, médico, especialidade e horário</p>
+    </div>
+</div>
+
+<div class="form-card">
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <div class="form-grid form-grid-2">
+
+            <div class="form-group">
+                <label for="pacienteId">Paciente</label>
+                <select id="pacienteId" name="pacienteId" required>
+                    <option value="">Selecione um paciente…</option>
+                    @foreach (var p in pacientes)
+                    {
+                        <option value="@p.GetId()">@p.GetNome()</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="medicoId">Médico</label>
+                <select id="medicoId" name="medicoId" required>
+                    <option value="">Selecione um médico…</option>
+                    @foreach (var m in medicos)
+                    {
+                        <option value="@m.Id">@m.GetNome() — @m.GetEspecialidade()</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tipoConsulta">Especialidade</label>
+                <select id="tipoConsulta" name="tipoConsulta" required>
+                    <option value="">Selecione…</option>
+                    <option value="geral">Clínica Geral</option>
+                    <option value="pediatria">Pediatria</option>
+                    <option value="ortopedia">Ortopedia</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tipoPacote">Pacote de Atendimento</label>
+                <select id="tipoPacote" name="tipoPacote" required>
+                    <option value="">Selecione…</option>
+                    <option value="basico">Pacote Básico (Consulta + Exame + Receita)</option>
+                    <option value="completo">Pacote Completo (Todos os serviços)</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+                <label for="dataHora">Data e Horário</label>
+                <select id="dataHora" name="dataHora" required>
+                    <option value="">Selecione um horário disponível…</option>
+                    @foreach (var h in horarios.Take(40))
+                    {
+                        <option value="@h.ToString("yyyy-MM-ddTHH:mm:ss")">
+                            @h.ToString("dddd, dd/MM/yyyy 'às' HH:mm", new System.Globalization.CultureInfo("pt-BR"))
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button type="submit" class="btn btn-primary">Confirmar Agendamento</button>
+            <a asp-action="Index" class="btn btn-ghost">Cancelar</a>
+        </div>
+    </form>
+</div>

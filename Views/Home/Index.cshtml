@@ -1,0 +1,103 @@
+@{
+    ViewData["Title"] = "Dashboard";
+    var ultimos = ViewBag.UltimosAtendimentos as IEnumerable<ClinicaMVC.Domain.Models.Atendimento> ?? Enumerable.Empty<ClinicaMVC.Domain.Models.Atendimento>();
+}
+
+<div class="page-header">
+    <div>
+        <h1>Dashboard</h1>
+        <p>Visão geral do sistema de atendimentos</p>
+    </div>
+    <span style="color:var(--slate-500);font-size:.85rem;">@DateTime.Now.ToString("dddd, dd 'de' MMMM 'de' yyyy", new System.Globalization.CultureInfo("pt-BR"))</span>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-label">Pacientes</div>
+        <div class="stat-value">@ViewBag.TotalPacientes</div>
+        <div class="stat-icon">👤</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Médicos</div>
+        <div class="stat-value">@ViewBag.TotalMedicos</div>
+        <div class="stat-icon">🩺</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Atendimentos</div>
+        <div class="stat-value">@ViewBag.TotalAtendimentos</div>
+        <div class="stat-icon">📋</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Horários Livres</div>
+        <div class="stat-value">@ViewBag.HorariosDisponiveis</div>
+        <div class="stat-icon">🗓</div>
+    </div>
+</div>
+
+<div class="dashboard-grid">
+    <div class="table-card">
+        <div class="table-card-header">
+            <h2>Últimos Atendimentos</h2>
+            <a asp-controller="Agenda" asp-action="Index" class="btn btn-ghost" style="padding:.35rem .8rem;font-size:.8rem;">Ver todos →</a>
+        </div>
+        @if (!ultimos.Any())
+        {
+            <div class="empty-state">
+                <div class="empty-icon">📭</div>
+                <p>Nenhum atendimento registrado ainda.</p>
+            </div>
+        }
+        else
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paciente</th>
+                        <th>Médico</th>
+                        <th>Especialidade</th>
+                        <th>Data</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var a in ultimos)
+                    {
+                        <tr>
+                            <td>@(a.Paciente?.GetNome() ?? "—")</td>
+                            <td>@(a.Medico?.GetNome() ?? "—")</td>
+                            <td>@a.TipoConsulta</td>
+                            <td>@a.DataHora.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>
+                                <span class="badge @(a.Status == "Agendado" ? "badge-green" : a.Status == "Cancelado" ? "badge-red" : "badge-slate")">
+                                    @a.Status
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="table-card" style="padding:1.5rem;">
+            <h2 style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:1rem;">Ações Rápidas</h2>
+            <div style="display:flex;flex-direction:column;gap:.6rem;">
+                <a asp-controller="Agenda" asp-action="Agendar" class="btn btn-primary">🗓 Agendar Consulta</a>
+                <a asp-controller="Paciente" asp-action="Criar" class="btn btn-ghost">👤 Novo Paciente</a>
+                <a asp-controller="Medico" asp-action="Criar" class="btn btn-ghost">🩺 Novo Médico</a>
+            </div>
+        </div>
+
+        <div class="table-card" style="padding:1.5rem;">
+            <h2 style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:.75rem;">Padrões de Design</h2>
+            <div style="display:flex;flex-direction:column;gap:.5rem;font-size:.82rem;color:var(--slate-500);">
+                <div>✦ <strong>Factory Method</strong> — ConsultaFactory</div>
+                <div>✦ <strong>Abstract Factory</strong> — PacoteAtendimento</div>
+                <div>✦ <strong>Singleton</strong> — GerenciadorAgenda</div>
+                <div>✦ <strong>Repository</strong> — Camada de dados</div>
+                <div>✦ <strong>DIP / IoC</strong> — Program.cs DI</div>
+            </div>
+        </div>
+    </div>
+</div>
