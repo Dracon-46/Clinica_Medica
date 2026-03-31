@@ -1,8 +1,6 @@
 ---
 config:
   layout: elk
-  look: neo
-  theme: redux
 ---
 classDiagram
 direction BT
@@ -120,14 +118,11 @@ direction BT
 	    -consulta Consulta
 	    +realizarAtendimento() void
 	    +registrarNaAgenda() void
-    }
-
-    class ClinicaService {
-	    -pacoteFactory PacoteAtendimento
-	    +agendarConsulta(p Paciente, m Medico, tipo String) void
+      +agendarConsulta(p Paciente, m Medico, tipo String) void
 	    +cancelarConsulta(id String) void
 	    +listarHorarios() List
     }
+
 
 	<<interface>> Consulta
 	<<interface>> Exame
@@ -135,7 +130,6 @@ direction BT
 	<<abstract>> ConsultaFactory
 	<<abstract>> PacoteAtendimento
 	<<singleton>> GerenciadorAgenda
-	<<service>> ClinicaService
 
     ConsultaGeralImpl ..|> Consulta
     ConsultaPediatriaImpl ..|> Consulta
@@ -161,12 +155,9 @@ direction BT
     PacoteCompletoFactory ..> Consulta
     PacoteCompletoFactory ..> Exame
     PacoteCompletoFactory ..> Receituario
-    Medico ..> GerenciadorAgenda
     Atendimento o-- Paciente
     Atendimento o-- Medico
     Atendimento ..> PacoteAtendimento
     Atendimento ..> Consulta
     Atendimento ..> GerenciadorAgenda
-    ClinicaService ..> Atendimento
-    ClinicaService ..> PacoteAtendimento
-    ClinicaService ..> GerenciadorAgenda
+   
