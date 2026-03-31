@@ -1,13 +1,13 @@
 // Presentation/Controllers/PacienteController.cs
 using Microsoft.AspNetCore.Mvc;
-using ClinicaMVC.Application.Services;
+using ClinicaMVC.Domain.Factories;
 
 namespace ClinicaMVC.Controllers;
 
 public class PacienteController : Controller
 {
-    private readonly ClinicaService _service;
-    public PacienteController(ClinicaService service) => _service = service;
+    private readonly Atendimento2 _service;
+    public PacienteController(Atendimento2 service) => _service = service;
 
     public async Task<IActionResult> Index()
     {

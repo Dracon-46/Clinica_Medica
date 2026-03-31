@@ -1,22 +1,22 @@
 // Presentation/Controllers/HomeController.cs
 using Microsoft.AspNetCore.Mvc;
-using ClinicaMVC.Application.Services;
+using ClinicaMVC.Domain.Factories;
 
 namespace ClinicaMVC.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ClinicaService _clinicaService;
+    private readonly Atendimento2 _Atendimento2;
 
-    public HomeController(ClinicaService clinicaService)
-        => _clinicaService = clinicaService;
+    public HomeController(Atendimento2 atendimento2)
+        => _Atendimento2 = atendimento2;
 
     public async Task<IActionResult> Index()
     {
-        var pacientes = await _clinicaService.ListarPacientes();
-        var medicos = await _clinicaService.ListarMedicos();
-        var atendimentos = await _clinicaService.ListarAtendimentos();
-        var horarios = _clinicaService.ListarHorariosDisponiveis();
+        var pacientes = await _Atendimento2.ListarPacientes();
+        var medicos = await _Atendimento2.ListarMedicos();
+        var atendimentos = await _Atendimento2.ListarAtendimentos();
+        var horarios = _Atendimento2.ListarHorariosDisponiveis();
 
         ViewBag.TotalPacientes = pacientes.Count();
         ViewBag.TotalMedicos = medicos.Count();

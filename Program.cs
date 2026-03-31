@@ -4,7 +4,6 @@ using ClinicaMVC.Infrastructure.Data;
 using ClinicaMVC.Infrastructure.Repositories;
 using ClinicaMVC.Domain.Interfaces;
 using ClinicaMVC.Domain.Factories;
-using ClinicaMVC.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +26,7 @@ builder.Services.AddScoped<IAtendimentoRepository, AtendimentoRepository>();
 builder.Services.AddScoped<PacoteAtendimento, PacoteBasicoFactory>();
 
 // ── Application Service ───────────────────────────────────────────────────
-builder.Services.AddScoped<ClinicaService>();
+builder.Services.AddScoped<Atendimento2>();
 
 var app = builder.Build();
 
