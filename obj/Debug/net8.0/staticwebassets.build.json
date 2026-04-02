@@ -1,1 +1,228 @@
-{"Version":1,"Hash":"Kqhlw+olGhPhe1y1sD4db/tIC248SmRH1AP4953IrC8=","Source":"ClinicaMVC","BasePath":"_content/ClinicaMVC","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[{"Name":"ClinicaMVC\\wwwroot","Source":"ClinicaMVC","ContentRoot":"C:\\Clinica_Medica\\wwwroot\\","BasePath":"_content/ClinicaMVC","Pattern":"**"}],"Assets":[{"Identity":"C:\\Clinica_Medica\\wwwroot\\css\\site.css","SourceId":"ClinicaMVC","SourceType":"Discovered","ContentRoot":"C:\\Clinica_Medica\\wwwroot\\","BasePath":"_content/ClinicaMVC","RelativePath":"css/site#[.{fingerprint}]?.css","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"a2913xer3b","Integrity":"3nTACkr47sPN5jBtuqQrUFY+dchpwU3NzhXab6ERJbE=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\css\\site.css","FileLength":8826,"LastWriteTime":"2026-03-29T21:57:10+00:00"},{"Identity":"C:\\Clinica_Medica\\wwwroot\\js\\site.js","SourceId":"ClinicaMVC","SourceType":"Discovered","ContentRoot":"C:\\Clinica_Medica\\wwwroot\\","BasePath":"_content/ClinicaMVC","RelativePath":"js/site#[.{fingerprint}]?.js","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"p43ys1pq93","Integrity":"p2t/P4ubZTnjG243HQlwoL0e3w0ge6+T7udfI7JSQuk=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\js\\site.js","FileLength":551,"LastWriteTime":"2026-03-29T21:57:10+00:00"}],"Endpoints":[{"Route":"css/site.a2913xer3b.css","AssetFile":"C:\\Clinica_Medica\\wwwroot\\css\\site.css","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"8826"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\"3nTACkr47sPN5jBtuqQrUFY+dchpwU3NzhXab6ERJbE=\""},{"Name":"Last-Modified","Value":"Sun, 29 Mar 2026 21:57:10 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"a2913xer3b"},{"Name":"label","Value":"css/site.css"},{"Name":"integrity","Value":"sha256-3nTACkr47sPN5jBtuqQrUFY+dchpwU3NzhXab6ERJbE="}]},{"Route":"css/site.css","AssetFile":"C:\\Clinica_Medica\\wwwroot\\css\\site.css","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"8826"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\"3nTACkr47sPN5jBtuqQrUFY+dchpwU3NzhXab6ERJbE=\""},{"Name":"Last-Modified","Value":"Sun, 29 Mar 2026 21:57:10 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-3nTACkr47sPN5jBtuqQrUFY+dchpwU3NzhXab6ERJbE="}]},{"Route":"js/site.js","AssetFile":"C:\\Clinica_Medica\\wwwroot\\js\\site.js","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"551"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\"p2t/P4ubZTnjG243HQlwoL0e3w0ge6+T7udfI7JSQuk=\""},{"Name":"Last-Modified","Value":"Sun, 29 Mar 2026 21:57:10 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-p2t/P4ubZTnjG243HQlwoL0e3w0ge6+T7udfI7JSQuk="}]},{"Route":"js/site.p43ys1pq93.js","AssetFile":"C:\\Clinica_Medica\\wwwroot\\js\\site.js","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"551"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\"p2t/P4ubZTnjG243HQlwoL0e3w0ge6+T7udfI7JSQuk=\""},{"Name":"Last-Modified","Value":"Sun, 29 Mar 2026 21:57:10 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"p43ys1pq93"},{"Name":"label","Value":"js/site.js"},{"Name":"integrity","Value":"sha256-p2t/P4ubZTnjG243HQlwoL0e3w0ge6+T7udfI7JSQuk="}]}]}
+{
+  "Version": 1,
+  "Hash": "RD/B7EygCeAH8Ps5afj1NygWZL59Nv1Lp2pnKEHkFkg=",
+  "Source": "ClinicaMVC",
+  "BasePath": "_content/ClinicaMVC",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ClinicaMVC\\wwwroot",
+      "Source": "ClinicaMVC",
+      "ContentRoot": "C:\\Users\\Nefalem\\Desktop\\Clinica_Medica\\wwwroot\\",
+      "BasePath": "_content/ClinicaMVC",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Nefalem\\Desktop\\Clinica_Medica\\wwwroot\\css\\site.css",
+      "SourceId": "ClinicaMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nefalem\\Desktop\\Clinica_Medica\\wwwroot\\",
+      "BasePath": "_content/ClinicaMVC",
+      "RelativePath": "css/site#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "a2913xer3b",
+      "Integrity": "3nTACkr47sPN5jBtuqQrUFY+dchpwU3NzhXab6ERJbE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Nefalem\\Desktop\\Clinica_Medica\\wwwroot\\js\\site.js",
+      "SourceId": "ClinicaMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nefalem\\Desktop\\Clinica_Medica\\wwwroot\\",
+      "BasePath": "_content/ClinicaMVC",
+      "RelativePath": "js/site#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "p43ys1pq93",
+      "Integrity": "p2t/P4ubZTnjG243HQlwoL0e3w0ge6+T7udfI7JSQuk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\site.js"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/site.a2913xer3b.css",
+      "AssetFile": "C:\\Users\\Nefalem\\Desktop\\Clinica_Medica\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8826"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3nTACkr47sPN5jBtuqQrUFY+dchpwU3NzhXab6ERJbE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 02 Apr 2026 20:11:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "a2913xer3b"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-3nTACkr47sPN5jBtuqQrUFY+dchpwU3NzhXab6ERJbE="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\Nefalem\\Desktop\\Clinica_Medica\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8826"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3nTACkr47sPN5jBtuqQrUFY+dchpwU3NzhXab6ERJbE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 02 Apr 2026 20:11:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3nTACkr47sPN5jBtuqQrUFY+dchpwU3NzhXab6ERJbE="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "C:\\Users\\Nefalem\\Desktop\\Clinica_Medica\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "551"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"p2t/P4ubZTnjG243HQlwoL0e3w0ge6+T7udfI7JSQuk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 02 Apr 2026 20:11:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-p2t/P4ubZTnjG243HQlwoL0e3w0ge6+T7udfI7JSQuk="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.p43ys1pq93.js",
+      "AssetFile": "C:\\Users\\Nefalem\\Desktop\\Clinica_Medica\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "551"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"p2t/P4ubZTnjG243HQlwoL0e3w0ge6+T7udfI7JSQuk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 02 Apr 2026 20:11:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p43ys1pq93"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-p2t/P4ubZTnjG243HQlwoL0e3w0ge6+T7udfI7JSQuk="
+        }
+      ]
+    }
+  ]
+}

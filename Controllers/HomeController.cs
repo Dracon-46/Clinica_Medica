@@ -6,17 +6,17 @@ namespace ClinicaMVC.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly Atendimento2 _Atendimento2;
+    private readonly AtendimentoService _AtendimentoService;
 
-    public HomeController(Atendimento2 atendimento2)
-        => _Atendimento2 = atendimento2;
+    public HomeController(AtendimentoService atendimentoService)
+        => _AtendimentoService = atendimentoService;
 
     public async Task<IActionResult> Index()
     {
-        var pacientes = await _Atendimento2.ListarPacientes();
-        var medicos = await _Atendimento2.ListarMedicos();
-        var atendimentos = await _Atendimento2.ListarAtendimentos();
-        var horarios = _Atendimento2.ListarHorariosDisponiveis();
+        var pacientes = await _AtendimentoService.ListarPacientes();
+        var medicos = await _AtendimentoService.ListarMedicos();
+        var atendimentos = await _AtendimentoService.ListarAtendimentos();
+        var horarios = _AtendimentoService.ListarHorariosDisponiveis();
 
         ViewBag.TotalPacientes = pacientes.Count();
         ViewBag.TotalMedicos = medicos.Count();

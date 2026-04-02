@@ -1,0 +1,28 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/ClinicaMVC/css/site.a2913xer3b.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"a2913xer3b"},{"Name":"integrity","Value":"sha256-3nTACkr47sPN5jBtuqQrUFY\u002BdchpwU3NzhXab6ERJbE="},{"Name":"label","Value":"_content/ClinicaMVC/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"8826"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00223nTACkr47sPN5jBtuqQrUFY\u002BdchpwU3NzhXab6ERJbE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 02 Apr 2026 20:11:38 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ClinicaMVC/css/site.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-3nTACkr47sPN5jBtuqQrUFY\u002BdchpwU3NzhXab6ERJbE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"8826"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00223nTACkr47sPN5jBtuqQrUFY\u002BdchpwU3NzhXab6ERJbE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 02 Apr 2026 20:11:38 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ClinicaMVC/js/site.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-p2t/P4ubZTnjG243HQlwoL0e3w0ge6\u002BT7udfI7JSQuk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"551"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022p2t/P4ubZTnjG243HQlwoL0e3w0ge6\u002BT7udfI7JSQuk=\u0022"},{"Name":"Last-Modified","Value":"Thu, 02 Apr 2026 20:11:38 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ClinicaMVC/js/site.p43ys1pq93.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"p43ys1pq93"},{"Name":"integrity","Value":"sha256-p2t/P4ubZTnjG243HQlwoL0e3w0ge6\u002BT7udfI7JSQuk="},{"Name":"label","Value":"_content/ClinicaMVC/js/site.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"551"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022p2t/P4ubZTnjG243HQlwoL0e3w0ge6\u002BT7udfI7JSQuk=\u0022"},{"Name":"Last-Modified","Value":"Thu, 02 Apr 2026 20:11:38 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

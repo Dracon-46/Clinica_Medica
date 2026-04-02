@@ -51,7 +51,7 @@ public static class PacoteFactoryResolver
     };
 }
 
-public class Atendimento2
+public class AtendimentoService
 {
 
     private readonly IPacienteRepository _pacienteRepo;
@@ -61,7 +61,7 @@ public class Atendimento2
     // ← injetado conforme o diagrama: "-pacoteFactory PacoteAtendimento"
     // DIP: depende da abstração, não do PacoteFactoryResolver concreto
     private readonly PacoteAtendimento _pacoteFactory;
-    public Atendimento2(
+    public AtendimentoService(
     IPacienteRepository pacienteRepo,
     IMedicoRepository medicoRepo,
     IAtendimentoRepository atendimentoRepo,

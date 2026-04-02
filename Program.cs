@@ -26,7 +26,7 @@ builder.Services.AddScoped<IAtendimentoRepository, AtendimentoRepository>();
 builder.Services.AddScoped<PacoteAtendimento, PacoteBasicoFactory>();
 
 // ── Application Service ───────────────────────────────────────────────────
-builder.Services.AddScoped<Atendimento2>();
+builder.Services.AddScoped<AtendimentoService>();
 
 var app = builder.Build();
 

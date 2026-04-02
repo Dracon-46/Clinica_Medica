@@ -6,8 +6,8 @@ namespace ClinicaMVC.Controllers;
 
 public class AgendaController : Controller
 {
-    private readonly Atendimento2 _service;
-    public AgendaController(Atendimento2 service) => _service = service;
+    private readonly AtendimentoService _service;
+    public AgendaController(AtendimentoService service) => _service = service;
 
     public async Task<IActionResult> Index()
     {
