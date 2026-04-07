@@ -111,7 +111,7 @@ direction BT
 	    +getEspecialidade() String
     }
 
-    class Atendimento {
+    class AtendimentoService {
 	    -paciente Paciente
 	    -medico Medico
 	    -pacote PacoteAtendimento
@@ -155,9 +155,9 @@ direction BT
     PacoteCompletoFactory ..> Consulta
     PacoteCompletoFactory ..> Exame
     PacoteCompletoFactory ..> Receituario
-    Atendimento o-- Paciente
-    Atendimento o-- Medico
-    Atendimento ..> PacoteAtendimento
-    Atendimento ..> Consulta
-    Atendimento ..> GerenciadorAgenda
+    AtendimentoService o-- Paciente
+    AtendimentoService o-- Medico
+    AtendimentoService ..> PacoteAtendimento
+    AtendimentoService ..> Consulta
+    AtendimentoService ..> GerenciadorAgenda
    
